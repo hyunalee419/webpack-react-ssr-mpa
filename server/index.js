@@ -18,14 +18,14 @@ app.use(WDM);
 app.use(express.static(path.join(__dirname,'../build')));
 
 function renderReactDOMServer({ res, page, preloadState }) {
-	let renderProps = {
+	const renderProps = {
 		preloadState: `window.__PRELOADED_STATE__ =${JSON.stringify(preloadState).replace(/</g, '\\u003c')}`,
 		script: `/${page}/client.bundle.js`
 	};
 
 	ReactDOMServer.renderToNodeStream(
 		<Html {...renderProps}>
-		<App data={preloadState}/>
+			<App data={preloadState}/>
 		</Html>
 	).pipe(res);
 }
