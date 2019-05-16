@@ -5,8 +5,8 @@
 
  module.exports = {
 	 entry: {
-		 index: ['@babel/polyfill', PATH_SOURCE + '/pages/index/index.js', PATH_SOURCE + '/css/index.css'],
-		 about: ['@babel/polyfill', PATH_SOURCE + '/pages/about/index.js', PATH_SOURCE + '/css/about.css'],
+		 index: ['@babel/polyfill', PATH_SOURCE + '/pages/index/index.js', PATH_SOURCE + '/scss/index/index.scss'],
+		 about: ['@babel/polyfill', PATH_SOURCE + '/pages/about/index.js', PATH_SOURCE + '/scss/about/index.scss'],
 	 },
 	 output : {
 		 filename : '[name]/client.bundle.js', // output filename
@@ -26,10 +26,11 @@
 					 },
 				 }
 			 }, {
-				 test: /\.css$/,
+				 test: /\.s?css$/,
 				 use: [
 					 MiniCssExtractPlugin.loader,
-					 'css-loader'
+					 'css-loader',
+					 'sass-loader'
 				 ]
 			 }
 		 ],
