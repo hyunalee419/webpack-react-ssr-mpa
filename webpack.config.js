@@ -1,5 +1,4 @@
  const { resolve } = require('path');
- // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
  const PATH_SOURCE = resolve(__dirname, 'client');
 
@@ -25,21 +24,10 @@
 						 presets : ['@babel/preset-env', '@babel/preset-react']
 					 },
 				 }
-			 },
-			 // {
-				//  test: /\.css$/,
-				//  use: [
-				// 	 MiniCssExtractPlugin.loader,
-				// 	 'css-loader'
-				//  ]
-			 // }
+			 }
 		 ],
 	 },
 	 resolve: {
 		 extensions: ['.css', '.scss', '.js', '.jsx']
-	 },
-	 // plugins: [
-		//  // 기타 플러그인
-		//  new MiniCssExtractPlugin({ filename: '[name]/[name].css' })
-	 // ]
+	 }
  };

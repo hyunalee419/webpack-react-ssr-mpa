@@ -16,12 +16,13 @@ const port = 3000;
 server.use(WDM);
 
 server.use(express.static(path.join(__dirname,'../build')));
+server.use(express.static(path.join(__dirname,'../static')));
 
 function renderReactDOMServer({ res, page, preloadState }) {
 	const renderProps = {
 		preloadState: `window.__PRELOADED_STATE__ =${JSON.stringify(preloadState).replace(/</g, '\\u003c')}`,
 		script: `/${page}/client.bundle.js`,
-		css: `/${page}/${page}.css`
+		css: `/${page}.css`
 	};
 
 	ReactDOMServer.renderToNodeStream(
