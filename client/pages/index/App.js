@@ -18,7 +18,7 @@ class App extends Component {
 	render() {
 		const { data } = this.props;
 		return (
-			<div>
+			<div className="hello">
 				<p>{data.text}</p>
 				<h1>{this.state.text}</h1>
 			</div>
