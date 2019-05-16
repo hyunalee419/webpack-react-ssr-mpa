@@ -10,17 +10,18 @@ import App from '../client/pages/index/App';
 import WDM from './WDM';
 import Html from './Html';
 
-const app = express();
+const server = express();
 const port = 3000;
 
-app.use(WDM);
+server.use(WDM);
 
-app.use(express.static(path.join(__dirname,'../build')));
+server.use(express.static(path.join(__dirname,'../build')));
 
 function renderReactDOMServer({ res, page, preloadState }) {
 	const renderProps = {
 		preloadState: `window.__PRELOADED_STATE__ =${JSON.stringify(preloadState).replace(/</g, '\\u003c')}`,
-		script: `/${page}/client.bundle.js`
+		script: `/${page}/client.bundle.js`,
+		css: `/${page}/${page}.css`
 	};
 
 	ReactDOMServer.renderToNodeStream(
@@ -30,7 +31,7 @@ function renderReactDOMServer({ res, page, preloadState }) {
 	).pipe(res);
 }
 
-app.get('/', function (req, res, next) {
+server.get('/', function (req, res, next) {
 	renderReactDOMServer({
 		res,
 		page: 'index',
@@ -40,7 +41,7 @@ app.get('/', function (req, res, next) {
 	});
 });
 
-app.get('/about', function (req, res, next) {
+server.get('/about', function (req, res, next) {
 	renderReactDOMServer({
 		res,
 		page: 'about',
@@ -50,6 +51,6 @@ app.get('/about', function (req, res, next) {
 	});
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
 	console.log('http://localhost:3000')
 });
