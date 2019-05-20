@@ -8,6 +8,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import App from '../client/pages/index/App';
 import About from '../client/pages/about/About';
+import Post from '../client/pages/post/Post';
 import WDM from './WDM';
 import Html from './Html';
 
@@ -38,7 +39,8 @@ server.get('/', function (req, res, next) {
 		page: 'index',
 		content: App,
 		preloadState: {
-			text: 'index Server-Side Rendering'
+			text: 'index Server-Side Rendering',
+			hello: 'myname'
 		}
 	});
 });
@@ -50,6 +52,26 @@ server.get('/about', function (req, res, next) {
 		content: About,
 		preloadState: {
 			text: 'about Server-Side Rendering'
+		}
+	});
+});
+
+server.get('/post', function (req, res, next) {
+	renderReactDOMServer({
+		res,
+		page: 'post',
+		content: Post,
+		preloadState: {
+			result: [{
+				title: 'hello',
+				id: 11111
+			}, {
+				title: 'man',
+				id: 222222
+			}, {
+				title: 'woman',
+				id: 33333
+			}]
 		}
 	});
 });

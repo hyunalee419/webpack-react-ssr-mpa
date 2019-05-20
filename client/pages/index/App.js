@@ -17,10 +17,13 @@ class App extends Component {
 
 	render() {
 		const { data } = this.props;
+		const { text } = this.state;
 		return (
 			<div className="hello">
-				<p>{data.text}</p>
-				<h1>{this.state.text}</h1>
+				<p>{data.text} {data.hello}</p>
+				<h1>{text}</h1>
+				<a href="/about">click about</a>
+				<a href="/post">click post</a>
 			</div>
 		);
 	}
