@@ -9,6 +9,7 @@ module.exports = {
   entry: {
 		index: [...COMMON_ENTRY, PATH_SOURCE_PAGE + '/index/index.js', PATH_SOURCE_SCSS + '/index/index.scss'],
 		about: [...COMMON_ENTRY, PATH_SOURCE_PAGE + '/about/index.js', PATH_SOURCE_SCSS + '/about/index.scss'],
+		post: [...COMMON_ENTRY, PATH_SOURCE_PAGE + '/post/index.js', PATH_SOURCE_SCSS + '/post/index.scss'],
 	},
 	output : {
 		filename : '[name]/client.bundle.js', // output filename
