@@ -4,11 +4,11 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "npx nodemon --exec babel-node ./server",
+    "dev": "NODE_ENV=development npx nodemon --exec babel-node ./server",
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development",
     "server": "babel-node ./server",
-    "start": "npm run build & npm run server"
+    "start": "NODE_ENV=production npm run build & npm run server"
   },
   "dependencies": {
     "@babel/core": "7.4.4",
