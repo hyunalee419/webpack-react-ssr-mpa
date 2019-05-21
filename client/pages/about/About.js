@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const About = ({
 	data
@@ -19,6 +20,12 @@ const About = ({
 			<h1>{text} Hello</h1>
 		</div>
 	);
+};
+
+About.propTypes = {
+	data: PropTypes.shape({
+		text: PropTypes.string.isRequired
+	}).isRequired
 };
 
 export default About;
