@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PostList = ({ data }) => {
   const items = data && data.map((item) => (
@@ -9,6 +10,13 @@ const PostList = ({ data }) => {
       {items}
     </ul>
   );
+};
+
+PostList.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired
 };
 
 export default PostList;

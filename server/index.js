@@ -15,7 +15,9 @@ import Html from './Html';
 const server = express();
 const port = 3000;
 
-server.use(WDM);
+if (process.env.NODE_ENV !== 'production') {
+	server.use(WDM);
+}
 
 server.use(express.static(path.join(__dirname,'../build')));
 
