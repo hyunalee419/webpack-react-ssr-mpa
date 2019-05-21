@@ -37,11 +37,11 @@ module.exports = {
 		}
 		],
 	},
-	resolve: {
-  	extensions: ['.css', '.scss', '.js', '.jsx']
-	},
 	plugins: [
 		// 기타 플러그인
 		new MiniCssExtractPlugin({ filename: '[name]/[name].css' })
-	]
+	],
+	resolve: {
+		extensions: ['.css', '.scss', '.js', '.jsx'],
+	},
 };

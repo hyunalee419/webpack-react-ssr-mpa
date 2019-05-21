@@ -4,10 +4,11 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "npx nodemon --exec babel-node ./server",
-    "build": "webpack",
+    "dev": "NODE_ENV=development npx nodemon --exec babel-node ./server",
+    "build": "webpack --mode=production",
+    "watch": "webpack --watch --mode=development",
     "server": "babel-node ./server",
-    "start": "npm run build & npm run server"
+    "start": "NODE_ENV=production npm run build & npm run server"
   },
   "dependencies": {
     "@babel/core": "7.4.4",
@@ -21,6 +22,7 @@
     "mini-css-extract-plugin": "0.6.0",
     "node-sass": "4.12.0",
     "nodemon": "1.19.0",
+    "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "sass-loader": "7.1.0",
